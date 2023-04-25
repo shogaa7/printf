@@ -30,36 +30,30 @@
  * @precision: field precision specified
  * @h_modifier: on if h_modifier is specified
  * @l_modifier: on if l_modifier is specified
- *
- */
+*/
 typedef struct parameters
 {
-	unsigned int unsign			: 1;
-
-	unsigned int plus_flag		: 1;
-	unsigned int space_flag		: 1;
-	unsigned int hashtag_flag	: 1;
-	unsigned int zero_flag		: 1;
-	unsigned int minus_flag		: 1;
-
-	unsigned int width;
-	unsigned int precision;
-
-	unsigned int h_modifier		: 1;
-	unsigned int l_modifier		: 1;
+unsigned int unsign:1;
+unsigned int plus_flag:1;
+unsigned int space_flag:1;
+unsigned int hashtag_flag:1;
+unsigned int zero_flag:1;
+unsigned int minus_flag:1;
+unsigned int width;
+unsigned int precision;
+unsigned int h_modifier:1;
+unsigned int l_modifier:1;
 } params_t;
-
 /**
  * struct specifier - Struct token
  * @specifier: format token
  * @f: The function associated
- */
+*/
 typedef struct specifier
 {
-	char *specifier;
-	int (*f)(va_list, params_t *);
+char *specifier;
+int (*f)(va_list, params_t *);
 } specifier_t;
-
 /* _put.c module */
 int _puts(char *str);
 int _putchar(int c);
@@ -109,5 +103,4 @@ char *get_precision(char *p, params_t *params, va_list ap);
 
 /* _prinf.c moduule */
 int _printf(const char *format, ...);
-
-#endif 
+#endif
